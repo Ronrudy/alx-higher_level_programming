@@ -8,4 +8,4 @@ def uniq_add(my_list=[]):
 		if num not in unique_set:
 			unique_set.add(num)
 			total += num
-			return total
+	return total
