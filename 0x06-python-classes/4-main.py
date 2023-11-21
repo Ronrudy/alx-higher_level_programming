@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-list_division = __import__('4-list_division').list_division
+Square = __import__('3-square').Square
 
-my_l_1 = [10, 8, 4]
-my_l_2 = [2, 4, 4]
-result = list_division(my_l_1, my_l_2, max(len(my_l_1), len(my_l_2)))
-print(result)
+my_square_1 = Square(3)
+print("Area: {}".format(my_square_1.area()))
 
-print("--")
+try:
+    print(my_square_1.size)
+except Exception as e:
+    print(e)
 
-my_l_1 = [10, 8, 4, 4]
-my_l_2 = [2, 0, "H", 2, 7]
-result = list_division(my_l_1, my_l_2, max(len(my_l_1), len(my_l_2)))
-print(result)
+try:
+    print(my_square_1.__size)
+except Exception as e:
+    print(e)
+
+my_square_2 = Square(5)
+print("Area: {}".format(my_square_2.area()))
