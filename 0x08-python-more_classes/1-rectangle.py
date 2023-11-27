@@ -1,38 +1,30 @@
 #!/usr/bin/python3
-"""
-This module defines the Rectangle class with private attributes and properties.
-"""
+"""A class that defines a rectangle"""
 
 
 class Rectangle:
-    """
-    A class that represents a rectangle.
-    """
+    """this represents a rectangle"""
 
     def __init__(self, width=0, height=0):
-        """
-        Initializes a Rectangle instance with optional width and height.
+        """Initializing this rectangle class
         Args:
-            width (int): The width of the rectangle (default is 0).
-            height (int): The height of the rectangle (default is 0).
+            width: represents the width of the rectangle
+            height: represents the height of the rectangle
+        Raises:
+            TypeError: if size is not integer
+            ValueError: if size is less than zero
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
-        """
-        Getter method for the width attribute.
-        """
+        """retrieves width attribute"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """
-        Setter method for the width attribute.
-        Args:
-            value (int): The value to set as the width.
-        """
+        """sets width attribute"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -41,18 +33,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """
-        Getter method for the height attribute.
-        """
+        """retrieves height attribute"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """
-        Setter method for the height attribute.
-        Args:
-            value (int): The value to set as the height.
-        """
+        """sets height attribute"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
