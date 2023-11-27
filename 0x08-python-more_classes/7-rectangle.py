@@ -106,4 +106,4 @@ class Rectangle:
         Custom __del__ method to print a deletion message.
         """
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1  # Decrement instances count
+        Rectangle.number_of_instances -= 1
