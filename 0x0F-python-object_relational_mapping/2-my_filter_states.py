@@ -1,49 +1,28 @@
 #!/usr/bin/python3
 """
-Script that displays all values in the states table of hbtn_0e_0_usa
-where name matches the argument.
+This script takes in an argument and
+displays all values in the states
+where `name` matches the argument
+from the database `hbtn_0e_0_usa`.
 """
 
-
 import MySQLdb
-import sys
+from sys import argv
 
-
-def filter_states(username, password, database, state_name):
+if __name__ == '__main__':
     """
-    Selects and prints all states from the specified database
-    where the name matches the provided state_name.
+    Access to the database and get the states
+    from the database.
     """
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
 
-    # Create a cursor object using cursor() method
-    c = db.cursor()
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    # Format the SQL query with the user input
-    query = ("SELECT * FROM states "
-             "WHERE name = %s ORDER BY id ASC")
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states \
+                 WHERE name LIKE BINARY '{}' \
+                 ORDER BY states.id ASC".format(argv[4]))
+    rows = cur.fetchall()
 
-    # Execute SQL query
-    c.execute(query, (state_name,))
-
-    # Fetch all rows and print them
-    for row in c.fetchall():
+    for row in rows:
         print(row)
-
-    # Close the cursor and disconnect from server
-    c.close()
-    db.close()
-
-
-if __name__ == "__main__":
-    # Check if correct number of arguments provided
-    if len(sys.argv) == 5:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        state_name = sys.argv[4]
-        filter_states(username, password, database, state_name)
-    else:
-        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
