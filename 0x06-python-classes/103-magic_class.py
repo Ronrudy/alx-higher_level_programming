@@ -12,7 +12,8 @@ class MagicClass:
         Initializes a MagicClass object with the specified radius.
 
         Args:
-            radius (float or int, optional): The radius for calculation (default is 0)
+            radius (float or int, optional): The radius for calculation
+            (default is 0)
 
         Raises:
             TypeError: If radius is not a float or integer.
@@ -32,7 +33,8 @@ class MagicClass:
 
     def circumference(self):
         """
-        Calculates and returns the circumference of a circle with the specifies radius
+        Calculates and returns the circumference of a circle with the specifies
+        radius
         Returns:
             float: The circumference of the circle
         """
