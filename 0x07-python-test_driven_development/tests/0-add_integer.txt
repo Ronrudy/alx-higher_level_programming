@@ -69,3 +69,14 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+>>> add_integer(2**31, 2**31)
+Traceback (most recent call last):
+...
+OverflowError: Resulting integer is too large to represent
+
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+"""

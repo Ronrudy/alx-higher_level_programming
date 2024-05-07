@@ -10,19 +10,24 @@ def matrix_divided(matrix, div):
     div (int or float): The number by which to divide the elements.
 
     Returns:
-    list of lists: A new matrix with elements divided by 'div' and rounded to 2 decimal places.
+    list of lists: A new matrix with elements divided by 'div' and rounded
+    to 2 decimal places.
 
     Raises:
-    TypeError: If 'matrix' is not a list of lists containing integers or floats,
+    TypeError: If 'matrix' is not a list of lists containing integers or
+    floats,
                 or if 'div' is not a number (integer or float).
     TypeError: If each row of the matrix does not have the same size.
     ZeroDivisionError: If 'div' is equal to 0.
     """
 
     # Check if 'matrix' is a list of lists containing integers or floats
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix)\
-            or not all(isinstance(num, (int, float)) for row in matrix for num in row):
-            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if not isinstance(matrix, list)
+    or not all(isinstance(row, list) for row in matrix)\
+            or not all(isinstance(num, (int, float))for row in matrix for num
+            in row):
+        raise TypeError("matrix must be a matrix(list of lists)
+            of integers/floats")
 
     # Check if each row of the matrix has the same size
     if len(set(len(row) for row in matrix)) > 1:
